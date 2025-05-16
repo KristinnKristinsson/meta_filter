@@ -1,0 +1,211 @@
+[
+  {
+    "id": "test_reopen.py#line_16",
+    "file": "test_reopen.py",
+    "line": 16,
+    "tag": "logic",
+    "issue": "Ensure output is always a string\\n\"",
+    "code": "self.test_dir = tempfile.TemporaryDirectory()\n        self.test_file_path = Path(self.test_dir.name) / \"reopen_test.py\"\n        self.test_code = (\n            \"# @issue logic: Ensure output is always a string\\n\"\n            \"def stringify(x):\\n\"\n            \"    return str(x)\\n\"\n        )",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The code seems to be correct as the `stringify` function is ensuring that the output is always a string by using the `str()` function. However, it would be good to add some error handling to catch any exceptions that might occur when trying to convert `x` to a string.",
+        "timestamp": "25/05/16 14:16:49"
+      }
+    ],
+    "short_id": "0000"
+  },
+  {
+    "id": "test_view.py#line_16",
+    "file": "test_view.py",
+    "line": 16,
+    "tag": "style",
+    "issue": "Consider renaming for clarity\\n\"",
+    "code": "self.test_dir = tempfile.TemporaryDirectory()\n        self.test_file_path = Path(self.test_dir.name) / \"test_example.py\"\n        self.test_code = (\n            \"# @issue style: Consider renaming for clarity\\n\"\n            \"def x():\\n\"\n            \"    return 42\\n\"\n        )",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function name `x()` is not descriptive. Consider renaming it to something more meaningful that reflects its purpose or functionality.",
+        "timestamp": "25/05/16 14:16:50"
+      }
+    ],
+    "short_id": "0001"
+  },
+  {
+    "id": "test_resolve.py#line_15",
+    "file": "test_resolve.py",
+    "line": 15,
+    "tag": "test",
+    "issue": "Verify resolution mechanism\\n\"",
+    "code": "self.test_dir = tempfile.TemporaryDirectory()\n        self.test_file_path = Path(self.test_dir.name) / \"resolve_test.py\"\n        self.test_code = (\n            \"# @issue test: Verify resolution mechanism\\n\"\n            \"def test_case():\\n\"\n            \"    return True\\n\"\n        )",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The code seems to be creating a temporary directory and file for testing purposes. However, it's not clear how the \"test_case\" function is being used to verify the resolution mechanism. Please provide more context or add comments to explain the purpose of this function.",
+        "timestamp": "25/05/16 14:16:54"
+      }
+    ],
+    "short_id": "0002"
+  },
+  {
+    "id": "test_scenario.py#func_4",
+    "file": "test_scenario.py",
+    "line": 3,
+    "tag": "bug",
+    "issue": "Function throws division by zero error when input is zero",
+    "code": "def divide(a, b):\n    return a / b",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "MrSis",
+        "text": "A massive understatement here",
+        "timestamp": "25/05/16 12:48:05"
+      },
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function should include error handling to prevent a division by zero error. Consider adding a condition to check if 'b' is zero before performing the division.",
+        "timestamp": "25/05/16 14:16:56"
+      }
+    ],
+    "short_id": "0003"
+  },
+  {
+    "id": "test_scenario.py#func_8",
+    "file": "test_scenario.py",
+    "line": 7,
+    "tag": "logic",
+    "issue": "Function always returns wrong sum due to off-by-one error",
+    "code": "def add_numbers(n):\n    total = 0\n    for i in range(n):  # should be range(n+1)\n        total += i\n    return total",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The range in the for loop should be adjusted to 'range(n+1)' to correctly include 'n' in the sum. Currently, it's causing an off-by-one error by excluding 'n'.",
+        "timestamp": "25/05/16 14:16:58"
+      }
+    ],
+    "short_id": "0004"
+  },
+  {
+    "id": "test_scenario.py#func_15",
+    "file": "test_scenario.py",
+    "line": 14,
+    "tag": "arch",
+    "issue": "This function contains two responsibilities and should be split",
+    "code": "def update_user_profile(user_id, new_data):\n    # update database (side-effect)\n    db = connect_to_db()\n    db.update(user_id, new_data)\n\n    # compute analytics (pure)\n    summary = {\n        'length': len(new_data),\n        'uppercase_fields': [k for k in new_data if k.upper() == k]\n    }\n    return summary",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function `update_user_profile` indeed violates the Single Responsibility Principle. It's better to split this function into two: one for updating the database (`update_database`) and another for computing analytics (`compute_analytics`). This way, each function will have a single responsibility, making the code easier to maintain and test.",
+        "timestamp": "25/05/16 14:17:01"
+      }
+    ],
+    "short_id": "0005"
+  },
+  {
+    "id": "test_scenario.py#func_28",
+    "file": "test_scenario.py",
+    "line": 27,
+    "tag": "algo",
+    "issue": "Bubble sort is slow, consider replacing with merge sort",
+    "code": "def bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "While the bubble sort algorithm is implemented correctly, it's not the most efficient for large data sets due to its O(n^2) complexity. Consider using a more efficient sorting algorithm like merge sort, which has a complexity of O(n log n), to improve performance.",
+        "timestamp": "25/05/16 14:17:04"
+      }
+    ],
+    "short_id": "0006"
+  },
+  {
+    "id": "test_scenario.py#func_37",
+    "file": "test_scenario.py",
+    "line": 36,
+    "tag": "algo",
+    "issue": "Merge sort is more efficient, but still recursive and stack-heavy",
+    "code": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    return merge(left, right)",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The code for merge sort is correctly implemented and will work as expected. However, as you've noted, it is recursive and can be stack-heavy for large inputs. If you're dealing with large data sets, you might want to consider an iterative approach or a different sorting algorithm that is less memory-intensive.",
+        "timestamp": "25/05/16 14:17:07"
+      }
+    ],
+    "short_id": "0007"
+  },
+  {
+    "id": "test_scenario.py#func_60",
+    "file": "test_scenario.py",
+    "line": 59,
+    "tag": "algo",
+    "issue": "Red-black tree sort is advanced but poorly explained; add clarity",
+    "code": "def red_black_tree_sort(arr):\n    class Node:\n        def __init__(self, key):\n            self.key = key\n            self.left = None\n            self.right = None\n            self.color = 'red'  # just a placeholder for actual color logic\n\n    def insert(root, node):\n        if root is None:\n            return node\n        if node.key < root.key:\n            root.left = insert(root.left, node)\n        else:\n            root.right = insert(root.right, node)\n        return root\n\n    def inorder(root):\n        if root is None:\n            return []\n        return inorder(root.left) + [root.key] + inorder(root.right)\n\n    root = None\n    for value in arr:\n        root = insert(root, Node(value))\n    return inorder(root)",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "While the code is functional, it doesn't implement a red-black tree sort as the color property of the nodes is not used. The code is essentially a binary search tree sort. Please implement the color balancing logic of a red-black tree for correct functionality. Additionally, consider adding comments to explain the logic behind each function for better understanding.",
+        "timestamp": "25/05/16 14:17:11"
+      }
+    ],
+    "short_id": "0008"
+  },
+  {
+    "id": "test_comment.py#line_16",
+    "file": "test_comment.py",
+    "line": 16,
+    "tag": "bug",
+    "issue": "Needs to handle negative numbers\\n\"",
+    "code": "self.test_dir = tempfile.TemporaryDirectory()\n        self.test_file_path = Path(self.test_dir.name) / \"testfile.py\"\n        self.test_code = (\n            \"# @issue bug: Needs to handle negative numbers\\n\"\n            \"def abs_val(x):\\n\"\n            \"    return x if x >= 0 else -x\\n\"\n        )",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The code seems to handle negative numbers correctly by returning the absolute value. If there are specific scenarios where it fails, please provide more context or examples.",
+        "timestamp": "25/05/16 14:17:13"
+      }
+    ],
+    "short_id": "0009"
+  },
+  {
+    "id": "test_sweep.py#line_15",
+    "file": "test_sweep.py",
+    "line": 15,
+    "tag": "perf",
+    "issue": "This loop might be slow on large input\\n\"",
+    "code": "self.test_dir = tempfile.TemporaryDirectory()\n        self.test_file_path = Path(self.test_dir.name) / \"example.py\"\n        self.test_code = (\n            \"# @issue perf: This loop might be slow on large input\\n\"\n            \"def calculate():\\n\"\n            \"    for i in range(1000000):\\n\"\n            \"        print(i)\\n\"",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The loop in the `calculate` function iterates over a large range, which could indeed be slow for large inputs. Consider optimizing this loop, possibly by using a more efficient data structure or algorithm. Also, the `print` function inside the loop can significantly slow down the execution, consider removing it if it's not necessary.",
+        "timestamp": "25/05/16 14:17:17"
+      }
+    ],
+    "short_id": "000A"
+  },
+  {
+    "id": "test_sweep.py#line_20",
+    "file": "test_sweep.py",
+    "line": 20,
+    "tag": "bug",
+    "issue": "Handle division by zero\\n\"",
+    "code": "\"    for i in range(1000000):\\n\"\n            \"        print(i)\\n\"\n            \"\\n\"\n            \"# @issue bug: Handle division by zero\\n\"\n            \"def buggy():\\n\"\n            \"    return 10 / 0\\n\"\n        )",
+    "status": "unresolved",
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function `buggy()` currently attempts to divide by zero, which will raise a `ZeroDivisionError`. To handle this, you should add a try/except block to catch the error and handle it appropriately.",
+        "timestamp": "25/05/16 14:17:19"
+      }
+    ],
+    "short_id": "000B"
+  }
+]
