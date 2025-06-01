@@ -1,17 +1,17 @@
 # Scenario for full tool usage — includes functions with issues and complexities
 
-# @issue bug: Function throws division by zero error when input is zero
+# @issue logic: No handling for division by zero.
 def divide(a, b):
     return a / b
 
-# @issue logic: Function always returns wrong sum due to off-by-one error
+# @issue logic: The range in the for loop should be 'range(n+1)' instead of 'range(n)'.
 def add_numbers(n):
     total = 0
     for i in range(n):  # should be range(n+1)
         total += i
     return total
 
-# @issue arch: This function contains two responsibilities and should be split
+# @issue arch: Database connection established within the function
 def update_user_profile(user_id, new_data):
     # update database (side-effect)
     db = connect_to_db()
@@ -24,7 +24,8 @@ def update_user_profile(user_id, new_data):
     }
     return summary
 
-# @issue algo: Bubble sort is slow, consider replacing with merge sort
+
+# @issue perf: The bubble sort algorithm can be optimized.
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -33,7 +34,7 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
-# @issue algo: Merge sort is more efficient, but still recursive and stack-heavy
+# @issue logic: Undefined function 'merge'
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -42,6 +43,7 @@ def merge_sort(arr):
     right = merge_sort(arr[mid:])
     return merge(left, right)
 
+# @issue logic: Incomplete merge function
 def merge(left, right):
     result = []
     i = j = 0
@@ -56,7 +58,7 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 
-# @issue algo: Red-black tree sort is advanced but poorly explained; add clarity
+# @issue logic: Red-Black Tree logic is missing
 def red_black_tree_sort(arr):
     class Node:
         def __init__(self, key):
