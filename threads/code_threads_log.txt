@@ -1,0 +1,312 @@
+### LOGIC: Function does not return a value
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 5  
+**Short ID**: `0000`  
+**Status**: unresolved
+
+```python
+def no_return_add(a, b):
+    c = a + b
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: Function ignores input and always returns 42
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 9  
+**Short ID**: `0001`  
+**Status**: unresolved
+
+```python
+def constant_result(input):
+    return 42
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: Infinite recursion with no base case
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 16  
+**Short ID**: `0002`  
+**Status**: unresolved
+
+```python
+def recursive_bomb(n):
+    return recursive_bomb(n + 1)
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: Division by zero
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 20  
+**Short ID**: `0003`  
+**Status**: unresolved
+
+```python
+def divide_by_zero():
+    return 1 / 0
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### PERF: Inefficient use of sum in a loop
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 24  
+**Short ID**: `0004`  
+**Status**: unresolved
+
+```python
+def repeated_sum(n):
+    total = 0
+    for i in range(n):
+        total += sum(range(n))
+    return total
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### ARCH: Global variable used
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 33  
+**Short ID**: `0005`  
+**Status**: unresolved
+
+```python
+def increment_global():
+    global count
+    count += 1
+    return count
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### STYLE: Unnecessary nested if statements
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 39  
+**Short ID**: `0006`  
+**Status**: unresolved
+
+```python
+def check_even(n):
+    if n % 2 == 0:
+        if True:
+            if not False:
+                return True
+    return False
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### STYLE: Variable shadowing
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 47  
+**Short ID**: `0007`  
+**Status**: unresolved
+
+```python
+def shadow_example(val):
+    val = 10
+    def inner():
+        val = 20
+        return val
+    return inner()
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### STYLE: Unused variable in the code
+
+**File**: `test_folder/ai_test.py`  
+**Line**: 55  
+**Short ID**: `0008`  
+**Status**: unresolved
+
+```python
+def stuff(a):
+    unused = 12345
+    asdf = a * a
+    return asdf
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: No handling for division by zero.
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 3  
+**Short ID**: `0009`  
+**Status**: unresolved
+
+```python
+def divide(a, b):
+    return a / b
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: The range in the for loop should be 'range(n+1)' instead of 'range(n)'.
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 7  
+**Short ID**: `000A`  
+**Status**: unresolved
+
+```python
+def add_numbers(n):
+    total = 0
+    for i in range(n):  # should be range(n+1)
+        total += i
+    return total
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### ARCH: Database connection established within the function
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 14  
+**Short ID**: `000B`  
+**Status**: unresolved
+
+```python
+def update_user_profile(user_id, new_data):
+    # update database (side-effect)
+    db = connect_to_db()
+    db.update(user_id, new_data)
+
+    # compute analytics (pure)
+    summary = {
+        'length': len(new_data),
+        'uppercase_fields': [k for k in new_data if k.upper() == k]
+    }
+    return summary
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### PERF: The bubble sort algorithm can be optimized.
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 28  
+**Short ID**: `000C`  
+**Status**: unresolved
+
+```python
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: Undefined function 'merge'
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 37  
+**Short ID**: `000D`  
+**Status**: unresolved
+
+```python
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return merge(left, right)
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: Incomplete merge function
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 46  
+**Short ID**: `000E`  
+**Status**: unresolved
+
+```python
+def merge(left, right):
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------
+### LOGIC: Red-Black Tree logic is missing
+
+**File**: `test_folder/test_scenario.py`  
+**Line**: 61  
+**Short ID**: `000F`  
+**Status**: unresolved
+
+```python
+def red_black_tree_sort(arr):
+    class Node:
+        def __init__(self, key):
+            self.key = key
+            self.left = None
+            self.right = None
+            self.color = 'red'  # just a placeholder for actual color logic
+
+    def insert(root, node):
+        if root is None:
+            return node
+        if node.key < root.key:
+            root.left = insert(root.left, node)
+        else:
+            root.right = insert(root.right, node)
+        return root
+
+    def inorder(root):
+        if root is None:
+            return []
+        return inorder(root.left) + [root.key] + inorder(root.right)
+
+    root = None
+    for value in arr:
+        root = insert(root, Node(value))
+    return inorder(root)
+```
+
+**Discussion:**
+
+--------------------------------------------------------------------------------

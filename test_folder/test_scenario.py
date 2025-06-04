@@ -1,17 +1,16 @@
 # Scenario for full tool usage — includes functions with issues and complexities
 
-# @issue logic: No handling for division by zero.
 def divide(a, b):
     return a / b
 
-# @issue logic: The range in the for loop should be 'range(n+1)' instead of 'range(n)'.
+# @issue logic: The range should be 'range(n+1)' to include 'n' in the sum.
 def add_numbers(n):
     total = 0
     for i in range(n):  # should be range(n+1)
         total += i
     return total
 
-# @issue arch: Database connection established within the function
+# @issue arch: The function 'connect_to_db' is not defined in the code.
 def update_user_profile(user_id, new_data):
     # update database (side-effect)
     db = connect_to_db()
@@ -25,7 +24,7 @@ def update_user_profile(user_id, new_data):
     return summary
 
 
-# @issue perf: The bubble sort algorithm can be optimized.
+# @issue perf: Bubble sort has a worst-case and average complexity of O(n^2), where n is the number of items being sorted. Consider using more efficient sorting algorithms for larger data sets.
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -34,7 +33,7 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
-# @issue logic: Undefined function 'merge'
+# @issue perf: The function creates new lists for each recursive call which can lead to high memory usage for large lists.
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -43,7 +42,6 @@ def merge_sort(arr):
     right = merge_sort(arr[mid:])
     return merge(left, right)
 
-# @issue logic: Incomplete merge function
 def merge(left, right):
     result = []
     i = j = 0
@@ -58,7 +56,7 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 
-# @issue logic: Red-Black Tree logic is missing
+# @issue logic: The color property of the Node class is not used anywhere in the code and the red-black tree properties are not maintained during insertions.
 def red_black_tree_sort(arr):
     class Node:
         def __init__(self, key):

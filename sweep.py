@@ -71,6 +71,7 @@ def extract_function_block(lines, start_index):
     return '\n'.join(cleaned_lines).strip()
 
 def sweep_directory(directory):
+    #directory = Path(directory)
     all_issues = []
     for root, _, files in os.walk(directory):
         for file in files:
@@ -78,7 +79,14 @@ def sweep_directory(directory):
             if filepath.suffix in SUPPORTED_EXTENSIONS:
                 issues = find_issues_in_file(filepath)
                 all_issues.extend(issues)
-    return all_issues
+    if all_issues:
+        existing = load_existing_log()
+        existing_ids = {i['id'] for i in existing}
+        new_issues = [i for i in all_issues if i['id'] not in existing_ids]
+        full_log = merge_logs(existing, new_issues)
+        save_log(full_log)
+        return f"Discovered and logged {len(new_issues)} new AI-raised issue(s)."
+    return "No new issues discovered."
 
 if __name__ == '__main__':
     import sys

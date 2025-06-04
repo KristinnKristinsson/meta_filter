@@ -7,7 +7,13 @@
     "issue": "Function does not return a value",
     "code": "def no_return_add(a, b):\n    c = a + b",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function `no_return_add(a, b)` is currently not returning any value. To fix this, you should add a return statement at the end of the function, like `return c`.",
+        "timestamp": "25/06/02 12:46:01"
+      }
+    ],
     "short_id": "0000"
   },
   {
@@ -18,7 +24,13 @@
     "issue": "Function ignores input and always returns 42",
     "code": "def constant_result(input):\n    return 42",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function `constant_result` currently does not use its input parameter and always returns 42. Please revise the function to correctly utilize the input parameter to produce a variable output.",
+        "timestamp": "25/06/02 12:46:03"
+      }
+    ],
     "short_id": "0001"
   },
   {
@@ -29,7 +41,13 @@
     "issue": "Infinite recursion with no base case",
     "code": "def recursive_bomb(n):\n    return recursive_bomb(n + 1)",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "This function will result in a stack overflow due to infinite recursion. Please add a base case to stop the recursion.",
+        "timestamp": "25/06/02 12:46:05"
+      }
+    ],
     "short_id": "0002"
   },
   {
@@ -40,7 +58,13 @@
     "issue": "Division by zero",
     "code": "def divide_by_zero():\n    return 1 / 0",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "This code will raise a `ZeroDivisionError` as division by zero is undefined in mathematics. Consider adding a check to prevent division by zero or handle this exception with a try/except block.",
+        "timestamp": "25/06/02 12:46:07"
+      }
+    ],
     "short_id": "0003"
   },
   {
@@ -51,7 +75,13 @@
     "issue": "Inefficient use of sum in a loop",
     "code": "def repeated_sum(n):\n    total = 0\n    for i in range(n):\n        total += sum(range(n))\n    return total",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The sum(range(n)) is calculated repeatedly in the loop, which is unnecessary and inefficient. You can calculate it once before the loop and then multiply by n. This will significantly improve the performance of your function.",
+        "timestamp": "25/06/02 12:46:09"
+      }
+    ],
     "short_id": "0004"
   },
   {
@@ -62,7 +92,13 @@
     "issue": "Global variable used",
     "code": "def increment_global():\n    global count\n    count += 1\n    return count",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "Avoid using global variables as they can lead to code that is difficult to debug and understand. Consider using function arguments or class properties instead.",
+        "timestamp": "25/06/02 12:46:11"
+      }
+    ],
     "short_id": "0005"
   },
   {
@@ -73,7 +109,13 @@
     "issue": "Unnecessary nested if statements",
     "code": "def check_even(n):\n    if n % 2 == 0:\n        if True:\n            if not False:\n                return True\n    return False",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The nested if statements in this function are unnecessary. The function can be simplified to just one line: `return n % 2 == 0`. This will return True if the number is even and False if it's not.",
+        "timestamp": "25/06/02 12:46:14"
+      }
+    ],
     "short_id": "0006"
   },
   {
@@ -84,7 +126,13 @@
     "issue": "Variable shadowing",
     "code": "def shadow_example(val):\n    val = 10\n    def inner():\n        val = 20\n        return val\n    return inner()",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The inner function is shadowing the outer function's variable 'val'. This can lead to confusion and unexpected behavior. Consider renaming the inner variable to avoid shadowing.",
+        "timestamp": "25/06/02 12:46:16"
+      }
+    ],
     "short_id": "0007"
   },
   {
@@ -95,7 +143,13 @@
     "issue": "Unused variable in the code",
     "code": "def stuff(a):\n    unused = 12345\n    asdf = a * a\n    return asdf",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The variable 'unused' is declared but never used in the code. Consider removing it to improve code readability and efficiency.",
+        "timestamp": "25/06/02 12:46:18"
+      }
+    ],
     "short_id": "0008"
   },
   {
@@ -106,7 +160,13 @@
     "issue": "No handling for division by zero.",
     "code": "def divide(a, b):\n    return a / b",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function currently does not handle the case where 'b' is zero, which will cause a ZeroDivisionError. Consider adding a check to prevent division by zero.",
+        "timestamp": "25/06/02 12:46:20"
+      }
+    ],
     "short_id": "0009"
   },
   {
@@ -117,7 +177,13 @@
     "issue": "The range in the for loop should be 'range(n+1)' instead of 'range(n)'.",
     "code": "def add_numbers(n):\n    total = 0\n    for i in range(n):  # should be range(n+1)\n        total += i\n    return total",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The code is correct as it is if you want to add numbers from 0 to n-1. If you want to include 'n' in the summation, then yes, you should change the range to 'range(n+1)'. Please clarify the intended functionality.",
+        "timestamp": "25/06/02 12:46:23"
+      }
+    ],
     "short_id": "000A"
   },
   {
@@ -128,7 +194,13 @@
     "issue": "Database connection established within the function",
     "code": "def update_user_profile(user_id, new_data):\n    # update database (side-effect)\n    db = connect_to_db()\n    db.update(user_id, new_data)\n\n    # compute analytics (pure)\n    summary = {\n        'length': len(new_data),\n        'uppercase_fields': [k for k in new_data if k.upper() == k]\n    }\n    return summary",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "While the function works, it's not ideal to establish a database connection within the function. This could lead to performance issues as a new connection is created every time the function is called. Consider passing the database connection as a parameter to the function, or use a connection pool to manage connections.",
+        "timestamp": "25/06/02 12:46:26"
+      }
+    ],
     "short_id": "000B"
   },
   {
@@ -139,7 +211,13 @@
     "issue": "The bubble sort algorithm can be optimized.",
     "code": "def bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The bubble sort algorithm can indeed be optimized. Currently, it continues to iterate even if the array is sorted. Consider adding a flag to break the loop if no two elements were swapped in the inner loop. This will improve the best-case time complexity from O(n^2) to O(n).",
+        "timestamp": "25/06/02 12:46:28"
+      }
+    ],
     "short_id": "000C"
   },
   {
@@ -150,7 +228,13 @@
     "issue": "Undefined function 'merge'",
     "code": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    return merge(left, right)",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The function 'merge' is called in your 'merge_sort' function but it is not defined anywhere in the code. Please define the 'merge' function or import it from a library if it's a built-in function.",
+        "timestamp": "25/06/02 12:46:31"
+      }
+    ],
     "short_id": "000D"
   },
   {
@@ -161,7 +245,13 @@
     "issue": "Incomplete merge function",
     "code": "def merge(left, right):\n    result = []\n    i = j = 0\n    while i < len(left) and j < len(right):\n        if left[i] < right[j]:\n            result.append(left[i])\n            i += 1\n        else:\n            result.append(right[j])\n            j += 1\n    result.extend(left[i:])\n    result.extend(right[j:])\n    return result",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The merge function seems to be correctly implemented. It merges two sorted lists into one sorted list. However, it would be helpful to add some comments in the code to explain what each part does, especially for people who are not familiar with the merge sort algorithm. Also, consider adding error handling for cases where the input parameters are not lists or are not sorted.",
+        "timestamp": "25/06/02 12:46:35"
+      }
+    ],
     "short_id": "000E"
   },
   {
@@ -172,7 +262,18 @@
     "issue": "Red-Black Tree logic is missing",
     "code": "def red_black_tree_sort(arr):\n    class Node:\n        def __init__(self, key):\n            self.key = key\n            self.left = None\n            self.right = None\n            self.color = 'red'  # just a placeholder for actual color logic\n\n    def insert(root, node):\n        if root is None:\n            return node\n        if node.key < root.key:\n            root.left = insert(root.left, node)\n        else:\n            root.right = insert(root.right, node)\n        return root\n\n    def inorder(root):\n        if root is None:\n            return []\n        return inorder(root.left) + [root.key] + inorder(root.right)\n\n    root = None\n    for value in arr:\n        root = insert(root, Node(value))\n    return inorder(root)",
     "status": "unresolved",
-    "comments": [],
+    "comments": [
+      {
+        "author": "AI:AutoReviewer",
+        "text": "The code provided does not implement the Red-Black Tree logic. It only inserts nodes into a binary search tree and performs an in-order traversal. The color attribute of the Node class is not used anywhere in the code. To implement a Red-Black Tree, you need to add logic for balancing the tree and changing the colors of the nodes accordingly.",
+        "timestamp": "25/06/02 12:46:37"
+      },
+      {
+        "author": "Kristinn",
+        "text": "What is this?",
+        "timestamp": "25/06/02 13:01:55"
+      }
+    ],
     "short_id": "000F"
   }
 ]
